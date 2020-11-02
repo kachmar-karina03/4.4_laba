@@ -1,0 +1,53 @@
+//laba 4.4
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std; 
+int main()
+{
+    double R,x, xp, xk, dx,y ;
+
+    cout << "xp = "; cin >> xp;
+    cout << "xk = "; cin >> xk;
+    cout << "dx = "; cin >> dx;
+    
+    cout << "R = "; cin >> R;
+    cout<<"x=";cin >>x; 
+  
+  
+    cout << fixed;
+    cout << "---------------------------" << endl;
+    cout << "|" << setw(10) << "y" << "|" << endl;
+    cout << "---------------------------" << endl;
+
+    x = xp;
+    while (x <= xk) 
+    {      
+        if (x<=-6) 
+            y = R;
+        else
+            if (-6<x && x<=-R) // works (r=-1, x=-2)
+                y = (R+x)/(-R+6);
+            else
+                if (x> -R && x<=0 )
+                    y = R - sqrt(R*R - pow((x+R),2)); //works (r=1 , x=0)
+                else
+                    if (x>0 && x <= R) //works (r=2, x=1)
+                        y = sqrt( R*R - x*x );
+                    else 
+                        y = -(-x+R);
+
+        cout << " |" << setw(10) << setprecision(4) << y
+        << " |" << endl;
+        x += dx;
+    }
+cout << "---------------------------" << endl;
+cout << endl;
+cin.get(); 
+system("pause");
+return 0;
+}
+            
+        
+
+
